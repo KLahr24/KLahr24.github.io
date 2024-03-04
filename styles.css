@@ -1,40 +1,42 @@
+/* Resetting margin and padding for certain elements */
 body, h1, h2, p, ul {
     margin: 0;
     padding: 0;
 }
 
+/* Setting the default font for the entire body */
 body {
     font-family: Arial, sans-serif;
 }
-
+/* Styling for the header section *
 header {
-    background-color: #2F4F4F;
+    background-color: #2F4F4F; /* Dark teal background color */
     color: #fff;
-    padding: 10px;
-    text-align: center;
+    padding: 10px; /* Padding around the header content */
+    text-align: center; /* Center-aligning text within the header */
 }
 
 nav ul {
-    list-style-type: none;
+    list-style-type: none; /* Removing default list styling */
 }
 
 nav li {
-    display: inline;
-    margin-right: 20px;
+    display: inline; /* Displaying list items horizontally */
+    margin-right: 20px; /* Adding right margin between list items */
 }
-
+/* Styling for the main content section */
 section {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 20px auto; /* Centering the section and adding top and bottom margin */
     padding: 20px;
 }
-
+/* Styling for the footer section */
 footer {
-    background-color: #2F4F4F;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    background-color: #2F4F4F; /* Dark teal background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Center-aligning text within the footer */
+    padding: 10px; /* Padding around the footer content */
+    position: fixed; /* Fixing the position at the bottom of the viewport */
+    bottom: 0; /* Aligning the footer at the bottom */
+    width: 100%; /* Setting the width to 100% */
 }
