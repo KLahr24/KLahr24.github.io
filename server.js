@@ -1,31 +1,28 @@
-// server.js
-
 const express = require('express');
 const app = express();
 const PORT = 3000;
 
-app.use(express.urlencoded({ extended: true})); // for parsing application
+app.use(express.urlencoded({ extended: true }));
 
-app.get('/',(req, res) => {
-    res.sendFile(__dirname + '/index.html'); //send html fole on GET request
+// Route for serving the HTML form
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
 });
 
 // Route for handling form submissions
 app.post('/submit-form', (req, res) => {
-    const username = req.body.username: //access form data
-    // check if username is empty
+    const username = req.body.username; // Access form data
+
+    // Check if username is empty
     if (!username) {
-        return.res.status(400).send('Username cannot be empty');
+        return res.status(400).send('Username cannot be empty');
     }
-    res.send('Username is $klahr');
-});
-    
-    app.listen(port, () => {
-        console.log('Server running on http://localhost:${port}');
+
+    // Send response with the username
+    res.send(`Username is ${username}`);
 });
 
 // Start the server
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
