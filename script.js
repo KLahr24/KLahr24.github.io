@@ -1,4 +1,4 @@
-document.getElementById('contactForm').addEventListener('submit', function(event) {
+document.getElementById('your-form-id').addEventListener('submit', function(event) {
     if (!validateForm()) {
         event.preventDefault();
     }
