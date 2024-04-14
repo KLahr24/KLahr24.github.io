@@ -1,3 +1,13 @@
+const express = require('express');
+const { body, validationResult } = require('express-validator');
+
+const app = express();
+const port = 3000;
+
+// Middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+
 // Routes
 app.post('/submit-form', 
   // Data Validation
