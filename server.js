@@ -1,16 +1,28 @@
-// server.js
-const express = require('express');
-const app = express();
-const port = 3000;
+// Routes
+app.post('/submit-form', 
+  // Data Validation
+  [
+    body('name').trim().isLength({ min: 1 }).withMessage('Name is required'),
+    body('email').isEmail().withMessage('Invalid email address')
+  ],
+  // Request Handler
+  (req, res) => {
+    // Check for validation errors
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+    // Process valid form data
+    console.log(req.body); // Log form submission data
+    // Save data to database, send email, etc.
 
-app.post('/submit-form', (req, res) => {
-  console.log(req.body); // You will handle form submission data here
-  res.send('Form submitted successfully!');
-});
+    // Respond with success message
+    res.send('Form submitted successfully!');
+  }
+);
 
+// Server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
