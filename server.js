@@ -1,28 +1,27 @@
 // server.js
 
 const express = require('express');
-const bodyParser = require('body-parser');
-
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
-// Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true})); // for parsing application
 
-// Serve static files (e.g., HTML, CSS, images)
-app.use(express.static('public'));
+app.get('/',(req, res) => {
+    res.sendFile(__dirname + '/index.html'); //send html fole on GET request
+});
 
 // Route for handling form submissions
 app.post('/submit-form', (req, res) => {
-    // Extract form data from the request
-    const formData = req.body;
+    const username = req.body.username: //access form data
+    // check if username is empty
+    if (!username) {
+        return.res.status(400).send('Username cannot be empty');
+    }
+    res.send('Username is $klahr');
+});
     
-    // Process the form data (e.g., save to database)
-    console.log('Received form data:', formData);
-    
-    // Respond to the client
-    res.send('Form submitted successfully!');
+    app.listen(port, () => {
+        console.log('Server running on http://localhost:${port}');
 });
 
 // Start the server
