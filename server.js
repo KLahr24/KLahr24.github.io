@@ -1,4 +1,5 @@
 // server.js
+
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -9,15 +10,22 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Routes
+// Serve static files (e.g., HTML, CSS, images)
+app.use(express.static('public'));
+
+// Route for handling form submissions
 app.post('/submit-form', (req, res) => {
-    // Handle form submission
+    // Extract form data from the request
     const formData = req.body;
-    console.log(formData);
+    
+    // Process the form data (e.g., save to database)
+    console.log('Received form data:', formData);
+    
+    // Respond to the client
     res.send('Form submitted successfully!');
 });
 
-// Start server
+// Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
