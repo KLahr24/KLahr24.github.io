@@ -2,22 +2,15 @@
 <html lang="en">
 
 <head>
-     <!-- Set the character set and viewport for better compatibility -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial
-        <!-- Link to an external stylesheet for consistent styling -->-scale=1.0">
-    
-    <link rel="stylesheet" href="styles.css">
-    <!-- Set the title of the webpage -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- Header section containing the website title and navigation -->
     <header>
         <h1>Katlin Lahr</h1>
-        <!-- Navigation menu with links to different pages -->
-        
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -26,19 +19,28 @@
             </ul>
         </nav>
     </header>
-    <!-- Main content section of the webpage -->
 
     <section>
-         <!-- Heading welcoming visitors to the website -->
         <h2>Hello! Welcome to my very first website!</h2>
-        
-        <img src=KL.jpg>
+        <img src="KL.jpg" alt="Katlin Lahr">
+
+        <!-- Form for user input -->
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
     </section>
-    <!-- Footer section containing copyright information -->
 
     <footer>
         <p>&copy; 2024. All rights reserved.</p>
     </footer>
+
+    <!-- Add any JavaScript code here if needed -->
 </body>
 
 </html>
